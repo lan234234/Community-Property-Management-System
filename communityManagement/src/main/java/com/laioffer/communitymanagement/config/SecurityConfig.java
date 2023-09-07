@@ -11,8 +11,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth.antMatchers("/**").permitAll())
-//                .antMatchers(HttpMethod.GET, "/issues/*").permitAll()
-//                .antMatchers(HttpMethod.POST, "/issues/*").hasAuthority("ROLE_GUEST")
+//        version with authentication
+//        not sure if the following configurations are correct????????????
+//                .authorizeHttpRequests()
+//                .antMatchers(HttpMethod.GET, "/issues").hasAnyAuthority("ROLE_HOA")
+//                .antMatchers(HttpMethod.GET, "/issues").hasAnyAuthority("ROLE_RESIDENT")
+//                .antMatchers(HttpMethod.POST, "/issues/close/*", "/issues/confirm/*").hasAuthority("ROLE_HOA")
+//                .antMatchers(HttpMethod.POST, "/issues").hasAuthority("ROLE_GUEST")
 //                .anyRequest().authenticated()
 //                .and()
                 .csrf()

@@ -43,12 +43,12 @@ public class IssueController {
     public void addIssue(
             @RequestParam("content") String content,
             @RequestParam("images") MultipartFile[] images,
-            Principal principle) {
+            Principal principal) {
 
         Issue issue = new Issue()
                 .setContent(content)
                 .setReportDate(LocalDate.now())
-                .setResident(new User.Builder().setUsername(principle.getName()).build());
+                .setResident(new User.Builder().setUsername(principal.getName()).build());
         issueService.add(issue, images);
     }
 
